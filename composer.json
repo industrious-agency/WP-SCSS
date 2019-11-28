@@ -8,6 +8,8 @@
             "type": "vcs",
             "url": "git@github.com:ConnectThink/WP-SCSS.git"
         }
-    ]
+    ],
+    "require": {
+        "leafo/scssphp": "^0.8.4"
+    }
 }
-

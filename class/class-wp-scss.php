@@ -1,6 +1,4 @@
 <?php
-
-include_once( WPSCSS_PLUGIN_DIR . '/scssphp/scss.inc.php' );
 use Leafo\ScssPhp\Compiler;
 
 class Wp_Scss {
@@ -33,7 +31,7 @@ class Wp_Scss {
 
     $scssc->setFormatter( $compile_method );
     $scssc->setImportPaths( $this->scss_dir );
-    
+
     $this->sourcemaps = $sourcemaps;
   }
 
@@ -71,7 +69,7 @@ class Wp_Scss {
 				'sourceMapBasepath' => rtrim(ABSPATH, '/'), // base path for filename normalization
 				'sourceRoot' => '/', // This value is prepended to the individual entries in the 'source' field.
 			  ));
-			  
+
 			  $css = $scssc->compile(file_get_contents($in), $in);
 
               file_put_contents($cache.basename($out), $css);
@@ -98,7 +96,7 @@ class Wp_Scss {
           array_push($input_files, $file->getFilename());
         }
       }
-      
+
       // For each input file, find matching css file and compile
       foreach ($input_files as $scss_file) {
         $input = $this->scss_dir.$scss_file;

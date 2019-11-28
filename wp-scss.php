@@ -1,4 +1,5 @@
-<?php
+<?php require dirname(__FILE__) . '/vendor/autoload.php';
+
 /**
  * Plugin Name: WP-SCSS
  * Plugin URI: https://github.com/ConnectThink/WP-SCSS
@@ -66,12 +67,10 @@ if ( get_option( WPSCSS_VERSION_KEY ) !== false ) {
 /*
  * 2. REQUIRE DEPENDENCIES
  *
- *    scssphp - scss compiler
  *    class-wp-scss
  *    options.php - settings for plugin page
  */
 
-include_once WPSCSS_PLUGIN_DIR . '/scssphp/scss.inc.php'; // Sass Compiler (vendor)
 include_once WPSCSS_PLUGIN_DIR . '/class/class-wp-scss.php'; // Compiling Manager
 include_once WPSCSS_PLUGIN_DIR . '/options.php'; // Options page class
 
