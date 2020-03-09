@@ -151,7 +151,7 @@ class Wp_Scss {
       $latest_scss = 0;
       $latest_css = 0;
 
-      foreach ( new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this->scss_dir)) as $sfile ) {
+      foreach ( new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this->scss_dir), FilesystemIterator::SKIP_DOTS) as $sfile ) {
         if (pathinfo($sfile->getFilename(), PATHINFO_EXTENSION) == 'scss') {
           $file_time = $sfile->getMTime();
 
@@ -161,7 +161,7 @@ class Wp_Scss {
         }
       }
 
-      foreach ( new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this->css_dir)) as $cfile ) {
+      foreach ( new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this->css_dir), FilesystemIterator::SKIP_DOTS) as $cfile ) {
         if (pathinfo($cfile->getFilename(), PATHINFO_EXTENSION) == 'css') {
           $file_time = $cfile->getMTime();
 
